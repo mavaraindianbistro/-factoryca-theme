@@ -1,0 +1,53 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name":    "FactoryCA",
+    "theme_version": "1.0.0",
+    "theme_author":  "FactoryCA",
+    "theme_documentation_url": "https://factorycashop.com",
+    "theme_support_url":       "https://factorycashop.com/pages/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color",      "id": "color_primary",    "label": "Primary color",    "default": "#1C1C2E" },
+      { "type": "color",      "id": "color_accent",     "label": "Accent color",     "default": "#C9A84C" },
+      { "type": "color",      "id": "color_bg",         "label": "Background",       "default": "#F9F7F4" },
+      { "type": "color",      "id": "color_text",       "label": "Body text",        "default": "#1A1A1A" },
+      { "type": "color",      "id": "color_muted",      "label": "Muted text",       "default": "#6B6560" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      { "type": "font_picker", "id": "font_heading", "label": "Heading font", "default": "cormorant_garamond_n4" },
+      { "type": "font_picker", "id": "font_body",    "label": "Body font",    "default": "inter_n4" }
+    ]
+  },
+  {
+    "name": "Logo & Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon",    "label": "Favicon" },
+      { "type": "image_picker", "id": "share_image","label": "Default social sharing image" }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      { "type": "text",     "id": "seo_tagline",    "label": "Homepage tagline (title tag)", "default": "Beautiful downloads. Instant delivery." },
+      { "type": "textarea", "id": "seo_description","label": "Default meta description",     "default": "FactoryCA — Premium digital downloads for creative people. Planners, art prints, templates, SVG files and more. Instant delivery. Made in Canada." }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "text", "id": "twitter_handle", "label": "Twitter/X handle (without @)" }
+    ]
+  },
+  {
+    "name": "Navigation",
+    "settings": [
+      { "type": "link_list", "id": "main_nav_handle", "label": "Main navigation menu", "default": "main-menu" }
+    ]
+  }
+]

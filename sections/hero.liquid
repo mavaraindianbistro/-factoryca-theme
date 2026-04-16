@@ -1,0 +1,92 @@
+{%- liquid
+  assign layout = section.settings.layout | default: 'fullwidth'
+-%}
+
+<section class="hero hero--{{ layout }}" style="min-height:{{ section.settings.min_height | default: 90 }}vh">
+  <!-- Background -->
+  <div class="hero__bg">
+    {%- if section.settings.video_url != blank -%}
+      <video autoplay muted loop playsinline aria-hidden="true">
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {%- elsif section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1600 }}"
+        srcset="{{ section.settings.image | image_url: width: 800 }} 800w,
+                {{ section.settings.image | image_url: width: 1200 }} 1200w,
+                {{ section.settings.image | image_url: width: 1600 }} 1600w,
+                {{ section.settings.image | image_url: width: 2000 }} 2000w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+        fetchpriority="high"
+        width="1600" height="900">
+    {%- endif -%}
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="hero__content fade-in">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="hero__title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="hero__subtitle">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      <div class="hero__ctas">
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn btn-accent btn-lg">
+            {{ section.settings.cta_label }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_label != blank -%}
+          <a href="{{ section.settings.secondary_url | default: '/collections/all' }}" class="hero__secondary-cta">
+            {{ section.settings.secondary_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  {%- if section.settings.show_scroll_indicator -%}
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);animation:fadeIn 1s ease 1s both">
+      <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:bounce .8s ease infinite alternate">
+        <rect x="2" y="2" width="12" height="20" rx="6"/>
+        <circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <style>@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(4px); } }</style>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "select",       "id": "layout",           "label": "Layout",              "options": [{"value":"fullwidth","label":"Full width"},{"value":"split","label":"Split (coming soon)"}], "default": "fullwidth" },
+    { "type": "range",        "id": "min_height",       "label": "Min height (vh)",     "min": 50, "max": 100, "step": 5, "default": 90 },
+    { "type": "image_picker", "id": "image",            "label": "Background image" },
+    { "type": "url",          "id": "video_url",        "label": "Background video URL (MP4)" },
+    { "type": "text",         "id": "eyebrow",          "label": "Eyebrow text",        "default": "FactoryCA · Digital Downloads" },
+    { "type": "textarea",     "id": "heading",          "label": "Heading",             "default": "Beautiful art for your\n<em>digital life</em>" },
+    { "type": "text",         "id": "subheading",       "label": "Subheading",          "default": "Premium planners, art prints, templates & more. Instant download. No waiting, ever." },
+    { "type": "text",         "id": "cta_label",        "label": "Primary CTA label",   "default": "Shop the Collection" },
+    { "type": "url",          "id": "cta_url",          "label": "Primary CTA URL" },
+    { "type": "text",         "id": "secondary_label",  "label": "Secondary CTA label", "default": "See how it works ↓" },
+    { "type": "url",          "id": "secondary_url",    "label": "Secondary CTA URL" },
+    { "type": "checkbox",     "id": "show_scroll_indicator", "label": "Show scroll indicator", "default": true }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

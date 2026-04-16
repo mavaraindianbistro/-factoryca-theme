@@ -1,0 +1,68 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 class="section-heading fade-in">{{ section.settings.heading | default: 'Best Sellers' }}</h2>
+      </div>
+      {%- if section.settings.view_all_url != blank -%}
+        <a href="{{ section.settings.view_all_url }}" class="btn btn-outline btn-sm fade-in">Browse all →</a>
+      {%- endif -%}
+    </div>
+
+    {%- assign col = collections[section.settings.collection] -%}
+    {%- assign products = col.products | default: section.settings.products -%}
+
+    <div class="products-scroll" id="products-row-{{ section.id }}" role="list">
+      {%- if col != blank -%}
+        {%- for product in col.products limit: section.settings.product_count | default: 8 -%}
+          <div role="listitem">
+            {%- render 'product-card', product: product -%}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          {%- assign product = all_products[block.settings.product] -%}
+          {%- if product != blank -%}
+            <div role="listitem">
+              {%- render 'product-card', product: product -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <!-- Scroll arrows (desktop hidden, visible on hover) -->
+    <div style="display:flex;justify-content:center;gap:12px;margin-top:28px">
+      <button onclick="document.getElementById('products-row-{{ section.id }}').scrollBy({left:-300,behavior:'smooth'})" class="btn btn-outline btn-sm" aria-label="Scroll left" style="padding:10px 14px">←</button>
+      <button onclick="document.getElementById('products-row-{{ section.id }}').scrollBy({left:300,behavior:'smooth'})"  class="btn btn-outline btn-sm" aria-label="Scroll right" style="padding:10px 14px">→</button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "tag": "section",
+  "settings": [
+    { "type": "text",       "id": "eyebrow",       "label": "Eyebrow",            "default": "Top Picks" },
+    { "type": "text",       "id": "heading",       "label": "Heading",            "default": "Best Sellers" },
+    { "type": "collection", "id": "collection",    "label": "Collection (auto-fill)" },
+    { "type": "range",      "id": "product_count", "label": "Number of products", "min": 4, "max": 12, "step": 1, "default": 8 },
+    { "type": "url",        "id": "view_all_url",  "label": "View all URL" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product (manual)",
+      "limit": 12,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Featured Products" }]
+}
+{% endschema %}

@@ -1,0 +1,110 @@
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+
+    <!-- Logo -->
+    <div class="site-header__logo-wrap" style="display:flex;align-items:center;gap:8px">
+      <button class="mobile-menu-toggle header-mobile" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" style="display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:4px;color:var(--color-text)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+      <a href="/" class="site-header__logo" aria-label="{{ shop.name }} — Home">
+        {%- if section.settings.logo -%}
+          <img
+            src="{{ section.settings.logo | image_url: height: 72 }}"
+            srcset="{{ section.settings.logo | image_url: height: 72 }} 1x, {{ section.settings.logo | image_url: height: 144 }} 2x"
+            alt="{{ shop.name }}"
+            height="36" loading="eager">
+        {%- else -%}
+          <span class="site-header__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    <!-- Primary Nav -->
+    <nav class="site-header__nav" role="navigation" aria-label="Main navigation">
+      {%- for link in linklists[section.settings.main_nav_handle].links -%}
+        {%- if link.links.size > 0 -%}
+          <div class="has-mega-menu" style="position:relative">
+            <a href="{{ link.url }}" class="site-header__nav-link" aria-haspopup="true">
+              {{ link.title }}
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block;margin-left:4px;vertical-align:middle">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </a>
+            <div class="mega-menu" role="region" aria-label="{{ link.title }} collections">
+              <div class="mega-menu__inner container">
+                {%- for sub in link.links -%}
+                  {%- assign col = collections[sub.handle] -%}
+                  <a href="{{ sub.url }}" class="mega-menu__item">
+                    {%- if col.image -%}
+                      <img class="mega-menu__item-img"
+                        src="{{ col.image | image_url: width: 300 }}"
+                        alt="{{ col.title }}"
+                        loading="lazy" width="300" height="225">
+                    {%- else -%}
+                      <div class="mega-menu__item-img" style="background:var(--color-light);display:flex;align-items:center;justify-content:center">
+                        <span style="font-size:32px;opacity:.3">📦</span>
+                      </div>
+                    {%- endif -%}
+                    <span class="mega-menu__item-name">{{ sub.title }}</span>
+                    <span class="mega-menu__item-count">{{ col.products_count }} products</span>
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}" class="site-header__nav-link"{% if link.active %} aria-current="page"{% endif %}>
+            {{ link.title }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+      <button class="site-header__action-btn" data-open-search aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}/account{%- else -%}/account/login{%- endif -%}" class="site-header__action-btn" aria-label="{%- if customer -%}My account{%- else -%}Log in{%- endif -%}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+      {%- endif -%}
+
+      <button class="site-header__action-btn" data-open-cart aria-label="Cart ({{ cart.item_count }} items)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-count" aria-live="polite" aria-atomic="true" {% if cart.item_count == 0 %}style="display:none"{% endif %}>{{ cart.item_count }}</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<style>
+@media (max-width: 640px) {
+  .site-header__nav { display: none !important; }
+  .header-mobile { display: flex !important; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "limit": 1,
+  "settings": [
+    { "type": "image_picker", "id": "logo",          "label": "Logo" },
+    { "type": "link_list",    "id": "main_nav_handle", "label": "Navigation menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

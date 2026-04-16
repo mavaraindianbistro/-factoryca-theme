@@ -1,0 +1,49 @@
+{%- if section.settings.enabled -%}
+<div class="announcement-bar" id="announcement-bar" role="region" aria-label="Announcements">
+  <div class="announcement-bar__track" aria-live="polite">
+    {%- for block in section.blocks -%}
+      {%- assign msg = block.settings.message | default: '✦ Free instant download on every order ✦ Secure checkout ✦ Beautiful digital products' -%}
+      <span class="announcement-bar__item">{{ msg }}</span>
+    {%- endfor -%}
+    {%- comment -%}Duplicate for seamless loop{%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- assign msg = block.settings.message | default: '✦ Free instant download on every order ✦ Secure checkout ✦ Beautiful digital products' -%}
+      <span class="announcement-bar__item" aria-hidden="true">{{ msg }}</span>
+    {%- endfor -%}
+  </div>
+  {%- if section.settings.dismissible -%}
+    <button class="announcement-bar__close" aria-label="Dismiss announcement">×</button>
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "tag": "section",
+  "limit": 1,
+  "settings": [
+    { "type": "checkbox", "id": "enabled",     "label": "Show announcement bar", "default": true },
+    { "type": "checkbox", "id": "dismissible", "label": "Dismissible",           "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "message", "label": "Message", "default": "✨ Instant download · Secure checkout · Beautiful digital products" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "blocks": [
+        { "type": "message", "settings": { "message": "✨ Every order includes instant download — no waiting, ever." } },
+        { "type": "message", "settings": { "message": "🔒 Secure checkout · 100% Satisfaction Guaranteed" } },
+        { "type": "message", "settings": { "message": "🇨🇦 Proudly made in Canada by FactoryCA" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

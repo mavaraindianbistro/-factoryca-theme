@@ -1,0 +1,21 @@
+{
+  "general": {
+    "password_page": { "login_form_heading": "Enter store password", "login_form_password_label": "Password", "login_form_password_placeholder": "Your password", "login_form_submit": "Enter", "admin_link_html": "Are you the store owner? <a href='/admin' target='_blank'>Log in here</a>" },
+    "color": {
+      "names": { "aliceblue": "Alice Blue", "antiquewhite": "Antique White", "aqua": "Aqua", "black": "Black", "blue": "Blue", "brown": "Brown", "coral": "Coral", "cornflowerblue": "Cornflower Blue", "crimson": "Crimson", "darkblue": "Dark Blue", "darkgray": "Dark Gray", "darkgreen": "Dark Green", "darkred": "Dark Red", "gold": "Gold", "gray": "Gray", "green": "Green", "indigo": "Indigo", "ivory": "Ivory", "lavender": "Lavender", "maroon": "Maroon", "navy": "Navy", "olive": "Olive", "orange": "Orange", "pink": "Pink", "purple": "Purple", "red": "Red", "silver": "Silver", "teal": "Teal", "turquoise": "Turquoise", "violet": "Violet", "white": "White", "yellow": "Yellow" }
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "on_sale": "On Sale",
+      "quantity": { "label": "Quantity", "increase": "Increase quantity", "decrease": "Decrease quantity" }
+    }
+  },
+  "cart": {
+    "general": { "title": "Cart", "empty": "Your cart is empty", "subtotal": "Subtotal", "checkout": "Checkout" }
+  },
+  "accessibility": { "skip_to_content": "Skip to content", "close": "Close" }
+}

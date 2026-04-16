@@ -1,0 +1,66 @@
+<section class="section" style="padding:0">
+  <div class="brand-story">
+    {%- if section.settings.image_position == 'left' -%}
+      <div class="brand-story__media">
+        {%- if section.settings.image -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 900 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w,
+                    {{ section.settings.image | image_url: width: 900 }} 900w,
+                    {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="50vw"
+            alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+            loading="lazy" width="900" height="900">
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="brand-story__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="fade-in">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.body != blank -%}
+        <p class="fade-in">{{ section.settings.body }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn btn-primary fade-in">
+          {{ section.settings.cta_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.image_position == 'right' -%}
+      <div class="brand-story__media">
+        {%- if section.settings.image -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 900 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w,
+                    {{ section.settings.image | image_url: width: 900 }} 900w"
+            sizes="50vw"
+            alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+            loading="lazy" width="900" height="900">
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image",          "label": "Image" },
+    { "type": "select",       "id": "image_position", "label": "Image side", "options": [{"value":"left","label":"Left"},{"value":"right","label":"Right"}], "default": "left" },
+    { "type": "text",         "id": "eyebrow",        "label": "Eyebrow",    "default": "Our Story" },
+    { "type": "textarea",     "id": "heading",        "label": "Heading",    "default": "Made with intention, designed for your life" },
+    { "type": "textarea",     "id": "body",           "label": "Body text",  "default": "FactoryCA is a Canadian creative studio making premium digital products for people who value beautiful, functional design. Every planner, print, and template is crafted to bring joy to your everyday." },
+    { "type": "text",         "id": "cta_label",      "label": "CTA label",  "default": "Discover our story" },
+    { "type": "url",          "id": "cta_url",        "label": "CTA URL" }
+  ],
+  "presets": [{ "name": "Brand Story" }]
+}
+{% endschema %}

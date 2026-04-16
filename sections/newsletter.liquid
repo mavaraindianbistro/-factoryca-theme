@@ -1,0 +1,47 @@
+<section class="newsletter">
+  <div class="container" style="position:relative;z-index:1">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="fade-in">{{ section.settings.heading | default: 'Get 10% off your first order' }}</h2>
+    <p class="fade-in">{{ section.settings.subheading | default: 'Join thousands of happy customers. Get exclusive deals, new product alerts, and creative inspiration.' }}</p>
+
+    {%- form 'customer', class: 'newsletter-form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter,factoryca">
+      <div class="newsletter__form">
+        <input
+          class="newsletter__input"
+          type="email"
+          name="contact[email]"
+          placeholder="{{ section.settings.placeholder | default: 'Your email address' }}"
+          autocomplete="email"
+          required
+          aria-label="Email address">
+        <button type="submit" class="newsletter__submit">
+          {{ section.settings.button_label | default: 'Subscribe' }}
+        </button>
+      </div>
+      <p class="newsletter-msg" aria-live="polite"></p>
+    {%- endform -%}
+
+    <p class="newsletter__disclaimer">
+      {{ section.settings.disclaimer | default: 'No spam, ever. Unsubscribe anytime. By subscribing you agree to our Privacy Policy.' }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",       "label": "Eyebrow",         "default": "Join the Community" },
+    { "type": "textarea", "id": "heading",       "label": "Heading",         "default": "Get 10% off your first order" },
+    { "type": "textarea", "id": "subheading",    "label": "Subheading",      "default": "Join thousands of happy customers. Get exclusive deals, new product alerts, and creative inspiration." },
+    { "type": "text",     "id": "placeholder",   "label": "Input placeholder","default": "your@email.com" },
+    { "type": "text",     "id": "button_label",  "label": "Button label",    "default": "Subscribe →" },
+    { "type": "text",     "id": "disclaimer",    "label": "Disclaimer",      "default": "No spam, ever. Unsubscribe anytime." }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

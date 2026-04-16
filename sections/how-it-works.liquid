@@ -1,0 +1,56 @@
+<section class="section section--surface">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:clamp(40px,6vw,72px)">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 class="fade-in">{{ section.settings.heading | default: 'How It Works' }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="fade-in" style="max-width:480px;margin:12px auto 0">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="how-it-works__grid">
+      {%- for block in section.blocks -%}
+        <div class="how-step fade-in" style="animation-delay:{{ forloop.index0 | times: 0.15 }}s" {{ block.shopify_attributes }}>
+          <div class="how-step__number">{{ forloop.index }}</div>
+          <h3 class="how-step__title">{{ block.settings.title }}</h3>
+          <p class="how-step__desc">{{ block.settings.desc }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "tag": "section",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",     "label": "Eyebrow",    "default": "Simple Process" },
+    { "type": "text",     "id": "heading",     "label": "Heading",    "default": "Get your download in 3 steps" },
+    { "type": "text",     "id": "subheading",  "label": "Subheading", "default": "No apps, no waiting. Just beautiful files ready to use." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title",       "default": "Browse" },
+        { "type": "text", "id": "desc",  "label": "Description", "default": "Explore hundreds of premium digital downloads across every category." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Browse",   "desc": "Explore our curated collection of planners, art prints, templates, and more." } },
+        { "type": "step", "settings": { "title": "Purchase", "desc": "Checkout securely in seconds with your preferred payment method." } },
+        { "type": "step", "settings": { "title": "Download", "desc": "Receive your files instantly — download, print, or use them right away." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
