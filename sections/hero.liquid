@@ -20,6 +20,13 @@
         alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
         fetchpriority="high"
         width="1600" height="900">
+    {%- elsif section.settings.image_url != blank -%}
+      <img
+        src="{{ section.settings.image_url }}"
+        sizes="100vw"
+        alt="{{ section.settings.heading | escape }}"
+        fetchpriority="high"
+        style="width:100%;height:100%;object-fit:cover">
     {%- endif -%}
     <div class="hero__overlay"></div>
   </div>
@@ -76,7 +83,8 @@
   "settings": [
     { "type": "select",       "id": "layout",           "label": "Layout",              "options": [{"value":"fullwidth","label":"Full width"},{"value":"split","label":"Split (coming soon)"}], "default": "fullwidth" },
     { "type": "range",        "id": "min_height",       "label": "Min height (vh)",     "min": 50, "max": 100, "step": 5, "default": 90 },
-    { "type": "image_picker", "id": "image",            "label": "Background image" },
+    { "type": "image_picker", "id": "image",            "label": "Background image (upload via editor)" },
+    { "type": "url",          "id": "image_url",        "label": "Background image URL (set by agents)" },
     { "type": "url",          "id": "video_url",        "label": "Background video URL (MP4)" },
     { "type": "text",         "id": "eyebrow",          "label": "Eyebrow text",        "default": "FactoryCA · Digital Downloads" },
     { "type": "textarea",     "id": "heading",          "label": "Heading",             "default": "Beautiful art for your\n<em>digital life</em>" },
