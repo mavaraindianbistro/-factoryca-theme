@@ -16,7 +16,7 @@
             alt="{{ shop.name }}"
             height="36" loading="eager">
         {%- else -%}
-          <span class="site-header__logo-text">{{ shop.name }}</span>
+          <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" height="36" loading="eager" style="max-width:200px">
         {%- endif -%}
       </a>
     </div>
