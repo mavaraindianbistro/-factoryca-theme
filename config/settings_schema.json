@@ -20,8 +20,8 @@
   {
     "name": "Typography",
     "settings": [
-      { "type": "font_picker", "id": "font_heading", "label": "Heading font", "default": "cormorant_garamond_n4" },
-      { "type": "font_picker", "id": "font_body",    "label": "Body font",    "default": "inter_n4" }
+      { "type": "font_picker", "id": "font_heading", "label": "Heading font", "default": "helvetica_neue_n4" },
+      { "type": "font_picker", "id": "font_body",    "label": "Body font",    "default": "helvetica_neue_n4" }
     ]
   },
   {

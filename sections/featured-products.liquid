@@ -17,7 +17,8 @@
 
     <div class="products-scroll" id="products-row-{{ section.id }}" role="list">
       {%- if col != blank -%}
-        {%- for product in col.products limit: section.settings.product_count | default: 8 -%}
+        {%- assign product_count = section.settings.product_count | default: 8 -%}
+        {%- for product in col.products limit: product_count -%}
           <div role="listitem">
             {%- render 'product-card', product: product -%}
           </div>
