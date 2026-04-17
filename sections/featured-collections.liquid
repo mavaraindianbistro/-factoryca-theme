@@ -31,8 +31,8 @@
                 alt="{{ col.title }}"
                 loading="lazy" width="800" height="1067">
             {%- else -%}
-              <div style="width:100%;height:100%;background:var(--color-light);display:flex;align-items:center;justify-content:center">
-                <span style="font-size:48px;opacity:.2">🖼️</span>
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1C1C2E 0%,#2d2d4e 60%,#1a2040 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+                <svg width="36" height="64" viewBox="0 0 26 48" fill="none"><rect x="0" y="8" width="4" height="32" fill="#C9A84C"/><rect x="0" y="8" width="22" height="4" fill="#C9A84C"/><rect x="0" y="22" width="16" height="4" fill="#C9A84C"/></svg>
               </div>
             {%- endif -%}
             <div class="collection-card__overlay"></div>
