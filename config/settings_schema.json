@@ -18,13 +18,6 @@
     ]
   },
   {
-    "name": "Typography",
-    "settings": [
-      { "type": "font_picker", "id": "font_heading", "label": "Heading font", "default": "playfair_display_n4" },
-      { "type": "font_picker", "id": "font_body",    "label": "Body font",    "default": "assistant_n4" }
-    ]
-  },
-  {
     "name": "Logo & Favicon",
     "settings": [
       { "type": "image_picker", "id": "favicon",    "label": "Favicon" },
