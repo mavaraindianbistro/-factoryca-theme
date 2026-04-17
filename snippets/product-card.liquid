@@ -5,7 +5,10 @@
 
 {%- liquid
   assign first_variant = product.first_available_variant | default: product.variants.first
-  assign has_hover_image = product.images.size > 1
+  assign has_hover_image = false
+  if product.images.size > 1
+    assign has_hover_image = true
+  endif
   assign is_on_sale = false
   if first_variant.compare_at_price > first_variant.price
     assign is_on_sale = true
