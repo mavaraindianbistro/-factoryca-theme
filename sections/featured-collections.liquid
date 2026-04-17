@@ -31,9 +31,16 @@
                 alt="{{ col.title }}"
                 loading="lazy" width="800" height="1067">
             {%- else -%}
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1C1C2E 0%,#2d2d4e 60%,#1a2040 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
-                <svg width="36" height="64" viewBox="0 0 26 48" fill="none"><rect x="0" y="8" width="4" height="32" fill="#C9A84C"/><rect x="0" y="8" width="22" height="4" fill="#C9A84C"/><rect x="0" y="22" width="16" height="4" fill="#C9A84C"/></svg>
-              </div>
+              {%- assign first_product = col.products.first -%}
+              {%- if first_product.featured_image -%}
+                <img
+                  src="{{ first_product.featured_image | image_url: width: 800 }}"
+                  alt="{{ col.title }}"
+                  loading="lazy" width="800" height="1067"
+                  style="width:100%;height:100%;object-fit:cover">
+              {%- else -%}
+                <div style="width:100%;height:100%;background:linear-gradient(160deg,#1C1C2E 0%,#2a2a3e 100%)"></div>
+              {%- endif -%}
             {%- endif -%}
             <div class="collection-card__overlay"></div>
             <div class="collection-card__content">
