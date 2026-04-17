@@ -1,56 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "announcement": {
       "type": "announcement-bar",
+      "blocks": {
+        "msg1": {
+          "type": "message",
+          "settings": {
+            "message": "✨ Every order includes instant download — no waiting, ever."
+          }
+        },
+        "msg2": {
+          "type": "message",
+          "settings": {
+            "message": "🔒 Secure checkout · Satisfaction guaranteed · 🇨🇦 Made in Canada"
+          }
+        }
+      },
+      "block_order": [
+        "msg1",
+        "msg2"
+      ],
       "settings": {
         "enabled": true,
         "dismissible": true
-      },
-      "blocks": {
-        "msg1": { "type": "message", "settings": { "message": "✨ Every order includes instant download — no waiting, ever." } },
-        "msg2": { "type": "message", "settings": { "message": "🔒 Secure checkout · Satisfaction guaranteed · 🇨🇦 Made in Canada" } }
-      },
-      "block_order": ["msg1", "msg2"]
+      }
     },
     "hero": {
       "type": "hero",
       "settings": {
+        "layout": "fullwidth",
+        "min_height": 90,
+        "image_url": "",
+        "video_url": "",
         "eyebrow": "FactoryCA · Premium Digital Downloads",
-        "heading": "Beautiful downloads for\n<em>your creative life</em>",
+        "heading": "Beautiful downloads for\n<em>your beautiful life</em>",
         "subheading": "Planners, art prints, templates, eBooks, SVG files & more. Instant delivery. No waiting, ever.",
         "cta_label": "Shop the Collection",
         "cta_url": "/collections/all",
         "secondary_label": "How it works ↓",
         "secondary_url": "#how-it-works",
-        "show_scroll_indicator": true,
-        "min_height": 90
+        "show_scroll_indicator": true
       }
     },
     "trust": {
       "type": "trust-bar",
       "blocks": {
-        "t1": { "type": "item", "settings": { "icon": "download", "label": "Instant Download",      "desc": "Files delivered immediately" } },
-        "t2": { "type": "item", "settings": { "icon": "shield",   "label": "Secure Checkout",        "desc": "SSL encrypted & safe" } },
-        "t3": { "type": "item", "settings": { "icon": "star",     "label": "5-Star Quality",         "desc": "Thousands of happy customers" } },
-        "t4": { "type": "item", "settings": { "icon": "refresh",  "label": "Satisfaction Guaranteed","desc": "Love it or we make it right" } }
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "download",
+            "label": "Instant Download",
+            "desc": "Files delivered immediately"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "label": "Secure Checkout",
+            "desc": "SSL encrypted & safe"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "star",
+            "label": "5-Star Quality",
+            "desc": "Thousands of happy customers"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "refresh",
+            "label": "Satisfaction Guaranteed",
+            "desc": "Love it or we make it right"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
     },
     "collections": {
       "type": "featured-collections",
+      "blocks": {
+        "c1": {
+          "type": "collection",
+          "settings": {
+            "collection": "digital-art-prints"
+          }
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {
+            "collection": "printables"
+          }
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "guides-playbooks"
+          }
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {
+            "collection": "ai-prompt-packs"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
       "settings": {
         "eyebrow": "Browse by Category",
         "heading": "Everything you need, instantly",
         "view_all_label": "View all",
         "view_all_url": "/collections/all"
-      },
-      "blocks": {
-        "c1": { "type": "collection", "settings": { "collection": "digital-art-prints" } },
-        "c2": { "type": "collection", "settings": { "collection": "printables" } },
-        "c3": { "type": "collection", "settings": { "collection": "guides-playbooks" } },
-        "c4": { "type": "collection", "settings": { "collection": "ai-prompt-packs" } }
-      },
-      "block_order": ["c1", "c2", "c3", "c4"]
+      }
     },
     "best-sellers": {
       "type": "featured-products",
@@ -65,41 +149,100 @@
     "brand-story": {
       "type": "brand-story",
       "settings": {
+        "image_position": "left",
         "eyebrow": "Our Story",
         "heading": "Made with intention, designed for your life",
         "body": "FactoryCA is a Canadian creative studio making premium digital products for people who value beautiful, functional design. Every planner, print, and template is crafted to bring real joy and utility to your everyday.",
         "cta_label": "Learn more about us",
-        "cta_url": "/pages/about",
-        "image_position": "left"
+        "cta_url": "/pages/about"
       }
     },
     "how-it-works": {
       "type": "how-it-works",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Browse",
+            "desc": "Explore our curated collection of planners, art prints, templates, and more."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Purchase",
+            "desc": "Checkout securely in seconds with your preferred payment method."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Download",
+            "desc": "Receive your files instantly — download, print, or use them right away."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
       "settings": {
         "eyebrow": "Simple Process",
         "heading": "Get your download in 3 steps",
         "subheading": "No apps, no waiting. Just beautiful files ready to use."
-      },
-      "blocks": {
-        "s1": { "type": "step", "settings": { "title": "Browse", "desc": "Explore our curated collection of planners, art prints, templates, and more." } },
-        "s2": { "type": "step", "settings": { "title": "Purchase", "desc": "Checkout securely in seconds with your preferred payment method." } },
-        "s3": { "type": "step", "settings": { "title": "Download", "desc": "Receive your files instantly — download, print, or use them right away." } }
-      },
-      "block_order": ["s1", "s2", "s3"]
+      }
     },
     "testimonials": {
       "type": "testimonials",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "These planners are absolutely stunning. The quality and design are beyond what I expected. Instant download worked flawlessly.",
+            "name": "Emma T.",
+            "product": "2025 Daily Planner"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I purchased the art print bundle and every single piece is gorgeous. Printed beautifully on cardstock. My home office finally looks the part!",
+            "name": "James R.",
+            "product": "Botanical Art Bundle"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "The budget tracker spreadsheet literally changed how I manage money. So well designed. Highly recommend everything from FactoryCA.",
+            "name": "Priya K.",
+            "product": "Budget Tracker Pro"
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Fast, easy, beautiful. The SVG files worked perfectly with my Cricut. Designs are so much more elegant than anything else out there.",
+            "name": "Michelle D.",
+            "product": "Floral SVG Pack"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
       "settings": {
         "eyebrow": "Customer Love",
         "heading": "Thousands of happy downloads"
-      },
-      "blocks": {
-        "r1": { "type": "review", "settings": { "rating": 5, "quote": "These planners are absolutely stunning. The quality and design are beyond what I expected. Instant download worked flawlessly.", "name": "Emma T.", "product": "2025 Daily Planner" } },
-        "r2": { "type": "review", "settings": { "rating": 5, "quote": "I purchased the art print bundle and every single piece is gorgeous. Printed beautifully on cardstock. My home office finally looks the part!", "name": "James R.", "product": "Botanical Art Bundle" } },
-        "r3": { "type": "review", "settings": { "rating": 5, "quote": "The budget tracker spreadsheet literally changed how I manage money. So well designed. Highly recommend everything from FactoryCA.", "name": "Priya K.", "product": "Budget Tracker Pro" } },
-        "r4": { "type": "review", "settings": { "rating": 5, "quote": "Fast, easy, beautiful. The SVG files worked perfectly with my Cricut. Designs are so much more elegant than anything else out there.", "name": "Michelle D.", "product": "Floral SVG Pack" } }
-      },
-      "block_order": ["r1", "r2", "r3", "r4"]
+      }
     },
     "newsletter": {
       "type": "newsletter",
@@ -107,9 +250,21 @@
         "eyebrow": "Join the Community",
         "heading": "Get 10% off your first order",
         "subheading": "Exclusive deals, new arrivals, and creative inspiration delivered to your inbox.",
-        "button_label": "Subscribe →"
+        "placeholder": "your@email.com",
+        "button_label": "Subscribe →",
+        "disclaimer": "No spam, ever. Unsubscribe anytime."
       }
-    },
+    }
   },
-  "order": ["announcement", "hero", "trust", "collections", "best-sellers", "brand-story", "how-it-works", "testimonials", "newsletter"]
+  "order": [
+    "announcement",
+    "hero",
+    "trust",
+    "collections",
+    "best-sellers",
+    "brand-story",
+    "how-it-works",
+    "testimonials",
+    "newsletter"
+  ]
 }
