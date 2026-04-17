@@ -83,17 +83,17 @@
       <div class="search-box__input-wrap">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--color-muted);margin-right:12px"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input class="search-box__input" type="text" placeholder="Search for planners, art prints, templates…" autocomplete="off" spellcheck="false">
-        <button onclick="$('.search-overlay').classList.remove('open');document.body.style.overflow=''" style="color:var(--color-muted);font-size:20px;padding:4px 8px;margin-left:8px" aria-label="Close search">×</button>
+        <button onclick="document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow=''" style="color:var(--color-muted);font-size:20px;padding:4px 8px;margin-left:8px" aria-label="Close search">×</button>
       </div>
       <div class="search-results" role="listbox"></div>
     </div>
   </div>
 
   <!-- Announcement Bar -->
-  {%- sections 'announcement-bar' -%}
+  {%- section 'announcement-bar' -%}
 
   <!-- Header -->
-  {%- sections 'header' -%}
+  {%- section 'header' -%}
 
   <!-- Mobile Menu -->
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
@@ -113,7 +113,7 @@
   </main>
 
   <!-- Footer -->
-  {%- sections 'footer' -%}
+  {%- section 'footer' -%}
 
   <!-- JS -->
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
