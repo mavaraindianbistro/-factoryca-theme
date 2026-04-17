@@ -32,12 +32,6 @@
     ]
   },
   {
-    "name": "Social Media",
-    "settings": [
-      { "type": "text", "id": "twitter_handle", "label": "Twitter/X handle (without @)" }
-    ]
-  },
-  {
     "name": "Navigation",
     "settings": [
       { "type": "link_list", "id": "main_nav_handle", "label": "Main navigation menu", "default": "main-menu" }

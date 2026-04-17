@@ -110,15 +110,6 @@
         "button_label": "Subscribe →"
       }
     },
-    "ugc": {
-      "type": "ugc-feed",
-      "settings": {
-        "eyebrow": "Customer Creations",
-        "heading": "See it in real life",
-        "instagram_handle": "@factorycashop"
-      },
-      "blocks": {}
-    }
   },
-  "order": ["announcement", "hero", "trust", "collections", "best-sellers", "brand-story", "how-it-works", "testimonials", "newsletter", "ugc"]
+  "order": ["announcement", "hero", "trust", "collections", "best-sellers", "brand-story", "how-it-works", "testimonials", "newsletter"]
 }

@@ -25,9 +25,6 @@
   {%- elsif settings.share_image -%}
     <meta property="og:image"       content="{{ settings.share_image | image_url: width: 1200 }}">
   {%- endif -%}
-  <meta name="twitter:card"       content="summary_large_image">
-  <meta name="twitter:site"       content="{{ settings.twitter_handle | prepend: '@' }}">
-
   <!-- Canonical -->
   <link rel="canonical" href="{{ canonical_url }}">
 
