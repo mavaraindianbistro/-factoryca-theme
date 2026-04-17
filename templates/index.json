@@ -101,25 +101,25 @@
         "c1": {
           "type": "collection",
           "settings": {
-            "collection": "digital-art-prints"
+            "collection": "new-arrivals"
           }
         },
         "c2": {
           "type": "collection",
           "settings": {
-            "collection": "printables"
+            "collection": "bundles"
           }
         },
         "c3": {
           "type": "collection",
           "settings": {
-            "collection": "guides-playbooks"
+            "collection": "planners-journals"
           }
         },
         "c4": {
           "type": "collection",
           "settings": {
-            "collection": "ai-prompt-packs"
+            "collection": "best-sellers"
           }
         }
       },
@@ -141,7 +141,7 @@
       "settings": {
         "eyebrow": "Top Picks",
         "heading": "Best Sellers",
-        "collection": "digital-art-prints",
+        "collection": "new-arrivals",
         "product_count": 8,
         "view_all_url": "/collections/all"
       }
