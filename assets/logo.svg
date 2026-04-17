@@ -1,14 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 48" fill="none">
   <!-- Mark: stylized F -->
   <rect x="0" y="8" width="4" height="32" fill="#C9A84C"/>
   <rect x="0" y="8" width="22" height="4" fill="#C9A84C"/>
   <rect x="0" y="22" width="16" height="4" fill="#C9A84C"/>
-
-  <!-- Wordmark: FactoryCA -->
-  <text x="36" y="34"
-    font-family="'Cormorant Garamond', Georgia, serif"
-    font-size="26"
-    font-weight="500"
-    letter-spacing="2"
-    fill="#1C1C2E">FactoryCA</text>
 </svg>
